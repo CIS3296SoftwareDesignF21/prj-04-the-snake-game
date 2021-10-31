@@ -67,3 +67,7 @@ _RUNNING_
 ```
 java -jar snake.jar
 ```
+
+## Vision Statement
+
+## Personas
