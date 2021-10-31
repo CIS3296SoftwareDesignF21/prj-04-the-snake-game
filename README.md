@@ -26,9 +26,7 @@ The goal of the game is to eat as many apples as the snake can before dying. Rem
 _BUILDING_
 
 ```
-    - This project will be using Java, but if comfortable, you can use Python
-    - I also ran this code using IntelliJ, probably can use any other idle as long as they are compatible with GitHub 
-    - Need to make sure you have the most up to data JDK if writing in Java 
+    - Need to make sure you have the most up to data JDK
     - This source code is also using a .jar file, so make sure you have the most up-to-date one 
                             https://github.com/renanpvaz/java-snake/releases
 
