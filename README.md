@@ -91,6 +91,15 @@ java -jar snake.jar
 
 ## Vision Statement
 
+```
+“For people off all ages who need an easy but challenging game, The Snake Game is a 
+Java-based game that engages users by having a point-based system which rewards them as they play
+ and adds obstacles and speed to improve difficulty of the game. Unlike the retro/original version
+ of the Snake Game, our Snake Game provides a simple interface with improved gameplay.”
+
+```
+
+
 ## Personas
 
 #### _Persona 1_ 
@@ -140,10 +149,10 @@ playing a new version of a game she liked previously will connect her with techn
 with her kids.
 
 Betty is looking to play a retro game with a new feel. She remembers playing earlier versions of the Snake game but 
-wants to explore a newer version. Older versions of the game had only one speed of the game with only two ways to die: either running 
-into the wall or running into itself. This new version of the game will include an easy interface to interact with and added 
-obstacles to make the game increasingly difficult. The controls for the game are only the arrow keys plus some keys to access the 
-menu options so this will be perfect for her needs.
+wants to explore a newer version. Older versions of the game had only one speed of the game with only 
+two ways to die: either running into the wall or running into itself. This new version of the game will include an 
+easy interface to interact with and added obstacles to make the game increasingly difficult. The controls 
+for the game are only the arrow keys plus some keys to access the menu options so this will be perfect for her needs.
 
 ```
 #### _Persona 4_ 
