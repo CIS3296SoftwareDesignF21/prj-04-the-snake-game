@@ -1,9 +1,18 @@
 # Snake Game
+### Trello Board 
+
+https://trello.com/b/ONII9TYC/snake-game-project 
+
 ### Contributors:
+
 Olivia Felmey
+
 Cole Fitzpatrick
+
 Grant Gwiazdowski
+
 Casey Maloney
+
 Sophia Szczepanek
 
 ## Project Abstract
@@ -66,6 +75,20 @@ _RUNNING_
 java -jar snake.jar
 ```
 
+## New Ideas to the Game 
+
+ 1. Implement the game using threads: the direction of the snake and testing for collisions.  
+ 2. Crete a Test Model class for the game itself. Thinging about using Junit testing. This is to keep track of the high scores. 
+ 3. Add obstacles that pop up to kill the snake. Now the snake can die in three ways. Hitting a wall, hitting its own tail, or hitting this obstacle. 
+ 4. Adding a face to the snake. This will help see the snake better at what end its eatting the apple. 
+ 5. Increasing the speed of the snake. As the snake eats more apples the snake will increase the speed making the game harder as you go on. 
+ 6. Provide a scoreboard at the end of the game. 
+ 7. Change the menu screen when the game finishes to re-start the game. 
+ 8. Adding keys to pause, restart, or resume the game. 
+ 9. Adding tokens the snake can eat to give it extra lives. The total lives you can get is three. This allows you to keep playing the same game even when the         snake died. 
+ 10. Implements different modes to the game. The player can choose between beginner, intermediate, or expert.
+ 11. Implements different tokens in the game. One to slow down the snake for a period of time, one to go fast and nothing will kill it, etc. 
+
 ## Vision Statement
 
 ## Personas
@@ -87,4 +110,45 @@ of video games. He will use the snake game to challenge himself to harder gamepl
 have been implemented to the classic game; As well as enjoy the visually pleasing aesthetics that have been added.
 
 ```
+#### _Persona 2_ 
 
+```
+Billy, A Young Highschool Student
+
+Billy, age 15, is a highschool student in Philadelphia, PA. Billy spends most of his free time playing video 
+games at home. He's super creative and loves to challenge himself with new games. He one of three kids, and loves 
+to play games with his siblings. During his other time Billy tends to get bored easily and can't sit still for a
+long period of time. He always likes to be doing something thats fun and visually pleasing. Most of the time when 
+he's not playing video games, he outside playing with his friends and family. 
+
+Billy is pretty decent at video games, but is not expert. He really likes games that are fun but challenging. The more 
+he plays a game the better he gets. During school Billy just wants to play a game thats simple but also where he can still
+listen to the teacher. Billy just doesn't want to be bored out of his mind. The Snake Game will help his accomplish this. 
+The Snake Game can help Billy be attentive in class, but also have fun. The game will be able to challenge Billy's 
+mind. This game is perfect for all ages and Billy will be able to play, and continue to get better. 
+
+```
+#### _Persona 3_ 
+
+```
+
+
+
+
+```
+#### _Persona 4_ 
+
+```
+
+
+
+
+```
+#### _Persona 5_ 
+
+```
+
+
+
+
+```
