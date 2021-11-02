@@ -158,9 +158,18 @@ for the game are only the arrow keys plus some keys to access the menu options s
 #### _Persona 4_ 
 
 ```
+Agatha, A Retired Teacher
 
+Agatha Jones, age 74, is a retiree from Denver, Colorado. She taught at Great Willow elementary for 45 years before
+retiring to her coastal home that she shares with her husband in San Diego. She has had a full life so far, graduating 
+from Regis University, raising 3 kids, and winning the Denver holiday baking competition from 2005 to 2018 (and would’ve 
+won in 2019 if it wasn’t for her arthritis). Now she simply wants to sit back, relax, and maybe give a call to her 
+oldest about when she's going to finally become a grandma.
 
-
+Agatha’s doctor has given her the unique recommendation of playing video games to keep her hands dexterous in the later
+years of her life. She knows how to work a computer due to her work as a teacher, but isn’t adept in playing games on it.
+She has an interest in playing the Snake Game due to it’s simplistic nature as well as having a nice tutorial page that 
+tells her how to play.
 
 ```
 #### _Persona 5_ 
