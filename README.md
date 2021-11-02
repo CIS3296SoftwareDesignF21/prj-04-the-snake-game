@@ -113,9 +113,19 @@ have been implemented to the classic game; As well as enjoy the visually pleasin
 #### _Persona 2_ 
 
 ```
+Billy, A Young Highschool Student
 
+Billy, age 15, is a highschool student in Philadelphia, PA. Billy spends most of his free time playing video 
+games at home. He's super creative and loves to challenge himself with new games. He one of three kids, and loves 
+to play games with his siblings. During his other time Billy tends to get bored easily and can't sit still for a
+long period of time. He always likes to be doing something thats fun and visually pleasing. Most of the time when 
+he's not playing video games, he outside playing with his friends and family. 
 
-
+Billy is pretty decent at video games, but is not expert. He really likes games that are fun but challenging. The more 
+he plays a game the better he gets. During school Billy just wants to play a game thats simple but also where he can still
+listen to the teacher. Billy just doesn't want to be bored out of his mind. The Snake Game will help his accomplish this. 
+The Snake Game can help Billy be attentive in class, but also have fun. The game will be able to challenge Billy's 
+mind. This game is perfect for all ages and Billy will be able to play, and continue to get better. 
 
 ```
 #### _Persona 3_ 
