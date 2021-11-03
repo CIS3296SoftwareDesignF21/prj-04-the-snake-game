@@ -9,8 +9,9 @@ public class minimalProject{
         frame.setSize(300,300);
 
         // everyone add a contribution
-        frame.add(new JLabel("Hello World - Olivia"), BorderLayout.CENTER);
+        frame.add(new JLabel("Hello World - Olivia, Casey "), BorderLayout.CENTER); //just added my name to the Jlabel
         frame.getContentPane().setBackground(Color.GREEN);//I made the background green - Cole
+
         frame.setVisible(true);
 
     }
