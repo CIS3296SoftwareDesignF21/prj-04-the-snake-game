@@ -10,6 +10,7 @@ public class minimalProject{
 
         // everyone add a contribution
         frame.add(new JLabel("Hello World - Olivia"), BorderLayout.CENTER);
+        frame.add(new JLabel("Hello World - Sophia"), BorderLayout.CENTER);
         frame.getContentPane().setBackground(Color.GREEN);//I made the background green - Cole
         frame.setVisible(true);
 
