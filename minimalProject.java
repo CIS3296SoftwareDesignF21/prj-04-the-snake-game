@@ -16,11 +16,10 @@ public class minimalProject{
 
         frame.getContentPane().setBackground(Color.GREEN);//I made the background green - Cole
 
-        // I centered the Jframe on the screen
+        // I centered the Jframe on the screen - Grant
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension size = toolkit.getScreenSize();
         frame.setLocation((size.width - frame.getWidth())/2, (size.height - frame.getHeight())/2);
-
 
         frame.setVisible(true);
 
