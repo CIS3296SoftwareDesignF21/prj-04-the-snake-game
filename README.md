@@ -176,7 +176,16 @@ tells her how to play.
 
 ```
 
+Jenni, age 7, is a young girl from Austin, Texas. She just started first grade, where she has proven herself to be rather 
+intelligent and clever for her age. She spends most of her free time playing with legos by herself or with her mom, a 
+civil engineer. Her Dad, a technical artist, has been bonding with her by sharing his love of video games with her. He has 
+been introducing her to some simple retro games to try not overwhelm her with modern games that expect more experienced 
+players that grasp common video game patterns. 
 
-
+Jenni, however, quickly masters the basics of most games and just as quickly finds the games too easy. Jenni wants to try 
+harder games but her dad doesn't want it to be to hard for her. So Her dad wants to have her play a game that has 
+difficulty modes that let them set the difficulty so it's not to hard and she doesn't get bored. The snake game, an updated 
+version of the retro classic, Snake, which lets Jenni choose how hard the game is, letting her learn the basics on easier 
+modes and changing to hard modes as she gets better.
 
 ```
