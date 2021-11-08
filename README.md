@@ -189,3 +189,7 @@ version of the retro classic, Snake, which lets Jenni choose how hard the game i
 modes and changing to hard modes as she gets better.
 
 ```
+
+### Class Diagram
+
+[![Picture1](https://raw.githubusercontent.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/UML/SnakeClassDiagram.jpg)
