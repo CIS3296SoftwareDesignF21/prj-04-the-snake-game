@@ -52,4 +52,5 @@ public class Snake {
     public Point getHead() {
         return this.head;
     }
+
 }
