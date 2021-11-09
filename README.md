@@ -102,10 +102,10 @@ Java-based game that engages users by having a point-based system which rewards 
 
 ## Personas
 
-#### _Persona 1_ 
+#### _Persona 1_ (Olivia Felmey)
 
 ```
-Sean, College Student
+Sean, College Student 
 
 Sean, age 21, is a college student (Senior) at Temple University in Philadelphia, PA. He majors in 
 Graphic Design at The Tyler School of Art where he uses his creativity to create and design interesting 
@@ -117,6 +117,8 @@ creative and fun technology/games. His passion and love of video games also keep
 new types of online games which are visually pleasing yet also challenging due to his large amount of knowledge 
 of video games. He will use the snake game to challenge himself to harder gameplay with the new upgrades that
 have been implemented to the classic game; As well as enjoy the visually pleasing aesthetics that have been added.
+The new feature added of being able to collect extra lives allows him to play this challenging game for a longer amount
+of time, which he enjoys compared to the video games he is usually used to.
 
 ```
 #### _Persona 2_ 
