@@ -124,6 +124,7 @@ public class Game extends JPanel {
                 break;
             case PAUSED:
                 timer.cancel();
+                break;
             case GAME_OVER:
                 timer.cancel();
                 for(int i = best.length-1; i >=0 ; i--) {
