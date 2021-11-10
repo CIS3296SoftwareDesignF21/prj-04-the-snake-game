@@ -6,7 +6,7 @@
 
 ### Cole Fitzpatrick
     
-    - Added keys pause, resume, and restart buttons for the user
+    - Added restart key and fixed pause menu.
 
 
 ### Grant Gwiazdowski
