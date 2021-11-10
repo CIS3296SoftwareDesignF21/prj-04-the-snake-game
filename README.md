@@ -122,7 +122,7 @@ The new feature added of being able to collect extra lives allows him to play th
 of time, which he enjoys compared to the video games he is usually used to.
 
 ```
-#### _Persona 2_ 
+#### _Persona 2_ (Casey Maloney) 
 
 ```
 Billy, A Young Highschool Student
@@ -196,3 +196,68 @@ modes and changing to hard modes as she gets better.
 ### Class Diagram
 
 [![Picture1](https://raw.githubusercontent.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/UML/SnakeClassDiagram.jpg)
+
+In our UMl we have 4 main classes: Point, Snake, Game, Main. We also have two enumerations in our diagram: Game status, direction. The enumeration classses are just a list of name constants. 
+
+#### GameStatus 
+
+GameStatus just tells us the different types of condition the game is currently at. 
+We currently have four conditions for the game: Not_STARTED, RUNNING, PAUSED, GAME_OVER. 
+
+When the status is at NOT_STARTED the game hasn't started running yet. This is either the homescreen or when the game is over and the player can restart. RUNNING status just mean when the player is playing the game. PAUSE status is when the player stops the game momentarily, and same resume the game whenever they are ready. GAME_OVER tells is when the player has died in the game. 
+
+#### Direction 
+
+Direction class just tells us which way the snake will move on the board. Bascially the whole board is a graph with x and y axes. The snake can move in four different ways. Left, right, up, or down. This is controled by the arrow keys. 
+
+The methods isX() and isY() just helps us tell the direction of the snake on the axis. With isX() being the horizontal movements and isY() being the vertical movements. 
+
+#### Snake 
+
+Snake class had four different methods implemented in it. Snake, which takes in two ints as the paramerters, move, addtail, and turn, which takes in the direction of the snake as a parameter. 
+
+Addtail method just adds a "block" to the snakes body. This method is what makes the snake longer as the snake eats more apples. 
+
+Move method is just the tells the snake what direction to move in. It uses an array list to get the cordinates of the snake and change them in the direction it was given. 
+
+Turn will update the direction that the snake is turning. 
+
+Snake method is creating the snake for the beginning of the game. Its adding to the tail for the base length, and the snake is starting at the center of the board, moving right. 
+
+#### Main 
+
+Main class is our main method. 
+Its created our visiblity to the game true and calls another main method, to print the snake title, creates the size of the board, and starts the snake game. 
+
+#### Game 
+
+The Game class is our biggest one. It invloved the basics of the game and how the game works. There are currently 10 different methods within this class. In the Game class there are also two seperate other classes. The KeyListener and GameLoop class within the Game class. 
+
+Game() makes a new snake, and new KeyListener. It reads image the image for the apple, and sets the background color. It sets the status of the game to NOT_RUNNING. 
+
+PaintCompoentent() calls render to run the game and prints the graphics on the screen. 
+
+Update() is updating the snake as the game proccedes. It moves the snake, and checks whether or not the snake head has hit the apple. It will then call to add to the tail and also checks whether the snake head has hit a collison and died. 
+
+Reset() reset the game, and restarts it from the base snake length and position. 
+
+Setstatus() is a method that sets the staus of the game. Remember the status of our current game is either NOT_STARTED, RUNNING, PAUSED, or GAME_OVER. It switched the status between the four as the game starts, running, or ends. 
+
+TogglePause() is the pause method, that when called it pauses the game. 
+
+CheckforGameOver() is a method that check for collisons. There are two different things that will kill the snake: if it hit a boundary, if it hit its own tail. It checkes whether the snake has done either one of those collisions and will end the game into the status GAME_OVER. 
+
+DrawCenteredString() just centers the graphics on the board.
+
+Render() is the biggest method in this class. It basically is the running of the game. One the game is pulled up this is how the game works. Displaying the graphics, having the snake move, having the apples appear, and more. When the game runs this is the method that it goes to. 
+
+spawnCherry() is the method that displays the "apples" at random. 
+
+The Keylistener class is "listening" to what key is pressed on the keyboard. Its basically listening to the direction that is being inputed from the player to help tell where the snake to move. It is also listening to the pause button and when to start the game. 
+
+GameLoop class is updated the game as it is running. The game is one big loop, until the snake dies. This class is called to have the game continuly running in one big loop. 
+
+#### Point 
+
+The point class is what the snake is made up of. It creates the parts of the snake and allows the snake to move. 
+
