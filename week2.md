@@ -1,8 +1,8 @@
 # Trello tasks accomplished
 ### Olivia Felmey
 
-    - Created life given obstacles, which a player can only have 3 lives at most. 
-    - When game restarts snake to original size in beginning when you die with an extra life 
+    - Created life giving obstacles, which a player can only collect 3 extra lives at most at one time. 
+    - When extra life is used, snake respawns to the original size it was in the beginning.
 
 ### Cole Fitzpatrick
     
