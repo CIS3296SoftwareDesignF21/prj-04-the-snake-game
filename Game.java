@@ -219,7 +219,8 @@ public class Game extends JPanel {
         }
 
         if (status == GameStatus.PAUSED) {
-            g2d.drawString("Paused", 600, 14);
+        	drawCenteredString(g2d, "Paused", FONT_L, 300);
+        	drawCenteredString(g2d, "Press R to restart", FONT_M_ITALIC, 330);
         }
 
         g2d.setColor(new Color(74, 245, 14));
@@ -270,10 +271,15 @@ public class Game extends JPanel {
                 reset();
             }
 
-
+          //Reset
+            if(key == KeyEvent.VK_R && status == GameStatus.PAUSED) {
+            	 reset();
+             	 
+            }
 
             if (key == KeyEvent.VK_P) {
                 togglePause();
+                repaint();
             }
         }
     }
