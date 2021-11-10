@@ -251,10 +251,8 @@ public class Game extends JPanel {
         drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 140);
         drawCenteredString(g2d, "GAME OVER", FONT_L, 110);
         drawCenteredString(g2d, "Best Scores:", FONT_M, 170);
-        System.out.println(best[0]);
         for(int i = best.length-1; i >=0 ; i--) {
             String score = (best.length - i) + ". "  + best[i];
-            System.out.println(score);
             drawCenteredString(g2d, score, FONT_M, 425 - i*25);
         }
     }
