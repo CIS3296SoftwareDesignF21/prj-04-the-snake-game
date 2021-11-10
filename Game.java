@@ -16,7 +16,7 @@ public class Game extends JPanel {
     private Point cherry;
     private Point extraLife;
     private int points = 0;
-    private int best = 0;
+    private int[] best = new int[10]; // best score is last
     private int extraLives =0;
     private int newCherries =0;
     private BufferedImage image;
@@ -38,7 +38,7 @@ public class Game extends JPanel {
         try {
             image = ImageIO.read(new File("cherry.png"));
         } catch (IOException e) {
-          didLoadCherryImage = false;
+            didLoadCherryImage = false;
         }
 
         try{
@@ -107,7 +107,7 @@ public class Game extends JPanel {
         extraLife = null;
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
         //do we want the snake to have the long tail still once extra live starts??
-      //  for(int i =0;i<theSize;i++){
+        //  for(int i =0;i<theSize;i++){
         //    snake.addTail();
         //}
         setStatus(GameStatus.RUNNING);
@@ -126,7 +126,16 @@ public class Game extends JPanel {
                 timer.cancel();
             case GAME_OVER:
                 timer.cancel();
-                best = points > best ? points : best;
+                for(int i = best.length-1; i >=0 ; i--) {
+                    if(points == best[i])
+                        break;
+                    if(points > best[i]) {
+                        best[0] = points;
+                        Arrays.sort(best);
+                        break;
+                    }
+                }
+
                 break;
         }
 
@@ -141,9 +150,9 @@ public class Game extends JPanel {
 
         Point head = snake.getHead();
         boolean hitBoundary = head.getX() <= 20
-            || head.getX() >= WIDTH + 10
-            || head.getY() <= 40
-            || head.getY() >= HEIGHT + 30;
+                || head.getX() >= WIDTH + 10
+                || head.getY() <= 40
+                || head.getY() >= HEIGHT + 30;
 
         boolean ateItself = false;
 
@@ -152,14 +161,14 @@ public class Game extends JPanel {
         }
 
 
-            if (hitBoundary || ateItself) {
-                if(extraLives >0){
-                    extraLives -=1;
-                    extraLife();
-                }else {
-                    setStatus(GameStatus.GAME_OVER);
-                }
+        if (hitBoundary || ateItself) {
+            if(extraLives >0){
+                extraLives -=1;
+                extraLife();
+            }else {
+                setStatus(GameStatus.GAME_OVER);
             }
+        }
 
     }
 
@@ -178,27 +187,27 @@ public class Game extends JPanel {
         g2d.setFont(FONT_M);
 
         if (status == GameStatus.NOT_STARTED) {
-          drawCenteredString(g2d, "SNAKE", FONT_XL, 200);
-          drawCenteredString(g2d, "GAME", FONT_XL, 300);
-          drawCenteredString(g2d, "Press  any  key  to  begin ", FONT_M_ITALIC, 330);
+            drawCenteredString(g2d, "SNAKE", FONT_XL, 200);
+            drawCenteredString(g2d, "GAME", FONT_XL, 300);
+            drawCenteredString(g2d, "Press  any  key  to  begin ", FONT_M_ITALIC, 330);
 
-          return;
+            return;
         }
 
         Point p = snake.getHead();
 
         g2d.drawString("SCORE: " + String.format ("%04d", points), 20, 30);
         g2d.drawString("EXTRA LIVES: " + extraLives,320,30);
-        g2d.drawString("BEST: " + String.format ("%04d", best), 660, 30);
+        g2d.drawString("BEST: " + String.format ("%04d", best[best.length-1]), 660, 30);
 
         if (cherry != null) {
-          if (didLoadCherryImage) {
-            g2d.drawImage(image, cherry.getX(), cherry.getY(), 60, 60, null);
-          } else {
-            g2d.setColor(Color.RED);
-            g2d.fillOval(cherry.getX(), cherry.getY(), 10, 10);
-            g2d.setColor(new Color(53, 220, 8));
-          }
+            if (didLoadCherryImage) {
+                g2d.drawImage(image, cherry.getX(), cherry.getY(), 60, 60, null);
+            } else {
+                g2d.setColor(Color.RED);
+                g2d.fillOval(cherry.getX(), cherry.getY(), 10, 10);
+                g2d.setColor(new Color(53, 220, 8));
+            }
         }
 
         if(extraLife!=null){
@@ -214,8 +223,8 @@ public class Game extends JPanel {
 
 
         if (status == GameStatus.GAME_OVER) {
-            drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 330);
-            drawCenteredString(g2d, "GAME OVER", FONT_L, 300);
+            renderEndGame(g2d);
+
         }
 
         if (status == GameStatus.PAUSED) {
@@ -235,16 +244,27 @@ public class Game extends JPanel {
         g2d.setStroke(new BasicStroke(4));
         g2d.drawRect(20, 40, WIDTH, HEIGHT);
     }
+    public void renderEndGame(Graphics2D g2d) {
+        drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 140);
+        drawCenteredString(g2d, "GAME OVER", FONT_L, 110);
+        drawCenteredString(g2d, "Best Scores:", FONT_M, 170);
+        System.out.println(best[0]);
+        for(int i = best.length-1; i >=0 ; i--) {
+            String score = (best.length - i) + ". "  + best[i];
+            System.out.println(score);
+            drawCenteredString(g2d, score, FONT_M, 425 - i*25);
+        }
+    }
 
     public void spawnCherry() {
         cherry = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-            (new Random()).nextInt(HEIGHT - 60) + 40);
+                (new Random()).nextInt(HEIGHT - 60) + 40);
     }
 
     public void spawnExtraLife(){
 
-           extraLife = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-                   (new Random()).nextInt(HEIGHT - 60) + 40);
+        extraLife = new Point((new Random()).nextInt(WIDTH - 60) + 20,
+                (new Random()).nextInt(HEIGHT - 60) + 40);
 
     }
 
