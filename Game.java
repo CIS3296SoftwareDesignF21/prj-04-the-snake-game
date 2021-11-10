@@ -222,12 +222,14 @@ public class Game extends JPanel {
             g2d.drawString("Paused", 600, 14);
         }
 
+        g2d.setColor(new Color(245, 3, 52));
+        g2d.fillRect(p.getX(), p.getY(), 10, 10);
         g2d.setColor(new Color(74, 245, 14));
         g2d.fillRect(p.getX(), p.getY(), 10, 10);
 
         for(int i = 0, size = snake.getTail().size(); i < size; i++) {
             Point t = snake.getTail().get(i);
-
+            g2d.setColor(new Color(71, 128, 0));
             g2d.fillRect(t.getX(), t.getY(), 10, 10);
         }
 
