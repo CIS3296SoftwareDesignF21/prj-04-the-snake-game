@@ -158,7 +158,7 @@ easy interface to interact with and added obstacles to make the game increasingl
 for the game are only the arrow keys plus some keys to access the menu options so this will be perfect for her needs.
 
 ```
-#### _Persona 4_ 
+#### _Persona 4_ (Cole Fitzpatrick) 
 
 ```
 Agatha, A Retired Teacher
