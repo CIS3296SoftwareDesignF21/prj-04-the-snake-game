@@ -95,7 +95,8 @@ java -jar snake.jar
 “For people off all ages who need an easy but challenging game, The Snake Game is a 
 Java-based game that engages users by having a point-based system which rewards them as they play
  and adds obstacles and speed to improve difficulty of the game. Unlike the retro/original version
- of the Snake Game, our Snake Game provides a simple interface with improved gameplay.”
+ of the Snake Game, our Snake Game provides a simple interface with improved gameplay that utilizes 
+ multi-threading processes for the collisions and direction of the snake.”
 
 ```
 
