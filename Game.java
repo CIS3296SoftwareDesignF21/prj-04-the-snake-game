@@ -13,7 +13,7 @@ import javax.swing.*;
 public class Game {
     private Timer timer;
     private GameRender gameRender;
-    //renderable game objects
+
     private Snake snake;
     private Point cherry;
     private Point extraLife;
@@ -21,70 +21,17 @@ public class Game {
     private int[] best = new int[10]; // best score is last
     private int extraLives =0;
     private int newCherries =0;
-
-
     private GameStatus status;
 
-
-
-
-
-    private static Font FONT_M = new Font("ArcadeClassic", Font.PLAIN, 24);
-    private static Font FONT_M_ITALIC = new Font("ArcadeClassic", Font.ITALIC, 24);
-    private static Font FONT_L = new Font("ArcadeClassic", Font.PLAIN, 84);
-    private static Font FONT_XL = new Font("ArcadeClassic", Font.PLAIN, 150);
-    private static int WIDTH = 760;
-    private static int HEIGHT = 520;
     private static int DELAY = 50;
-    //private static Game _instance = null;
 
     public Game() {
         gameRender = new GameRender(this, new KeyListener());
-        //TODO game objects
-        snake = new Snake(WIDTH / 2, HEIGHT / 2);
+        resetSnake();
         status = GameStatus.NOT_STARTED;
     }
-/*
-    public static Game getInstance() {
-        if(_instance == null) {
-            _instance = new Game();
-        }
-        return _instance;
-    }
 
- */
 
-    public GameRender getGameRender() {
-        return gameRender;
-    }
-
-    public Snake getSnake() {
-        return snake;
-    }
-
-    public Point getCherry() {
-        return cherry;
-    }
-
-    public Point getExtraLife() {
-        return extraLife;
-    }
-    public int getPoints() {
-        return points;
-    }
-    public int getExtraLives() {
-        return  extraLives;
-    }
-
-    public GameStatus getStatus() {
-        return status;
-    }
-
-    public int[] getBest() {
-        return best;
-    }
-
-    //TODO Game logic
     private void update() {
         snake.move();
 
@@ -113,27 +60,30 @@ public class Game {
         checkForGameOver();
     }
 
-    //TODO Game logic
+
     private void reset() {
         points = 0;
         cherry = null;
         extraLife = null;
-        snake = new Snake(WIDTH / 2, HEIGHT / 2);
+        resetSnake();
         setStatus(GameStatus.RUNNING);
     }
-    //TODO Game logic
+    private void resetSnake() {
+        snake = new Snake(GameRender.WIDTH / 2, GameRender.HEIGHT / 2);
+    }
+
     private void extraLife(){
         setStatus(GameStatus.EXTRA_LIFE);
         cherry = null;
         extraLife = null;
-        snake = new Snake(WIDTH / 2, HEIGHT / 2);
+        resetSnake();
         //do we want the snake to have the long tail still once extra live starts??
         //  for(int i =0;i<theSize;i++){
         //    snake.addTail();
         //}
         setStatus(GameStatus.RUNNING);
     }
-    //TODO Game logic
+
     private void setStatus(GameStatus newStatus) {
         switch(newStatus) {
             case EXTRA_LIFE:
@@ -164,18 +114,17 @@ public class Game {
         status = newStatus;
     }
 
-    //TODO Game logic
     private void togglePause() {
         setStatus(status == GameStatus.PAUSED ? GameStatus.RUNNING : GameStatus.PAUSED);
     }
-    //TODO Game logic
+
     private void checkForGameOver() {
 
         Point head = snake.getHead();
         boolean hitBoundary = head.getX() <= 20
-                || head.getX() >= WIDTH + 10
+                || head.getX() >= GameRender.WIDTH + 10
                 || head.getY() <= 40
-                || head.getY() >= HEIGHT + 30;
+                || head.getY() >= GameRender.HEIGHT + 30;
 
         boolean ateItself = false;
 
@@ -194,20 +143,18 @@ public class Game {
         }
 
     }
-    //TODO game logic
     public void spawnCherry() {
-        cherry = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-                (new Random()).nextInt(HEIGHT - 60) + 40);
+        cherry = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
+                (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
     }
 
-    //TODO game logic
     public void spawnExtraLife(){
 
-        extraLife = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-                (new Random()).nextInt(HEIGHT - 60) + 40);
+        extraLife = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
+                (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
 
     }
-    //TODO game mixed with Rendering but correctly (asks for render)
+
     private class KeyListener extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
@@ -233,11 +180,40 @@ public class Game {
             }
         }
     }
-    //TODO game mixed with Rendering but correctly (asks for render)
+
     private class GameLoop extends java.util.TimerTask {
         public void run() {
             update();
             gameRender.repaint();
         }
+    }
+
+
+    /*
+        Getters for the fields of Game
+     */
+    public GameRender getGameRender() {
+        return gameRender;
+    }
+    public Snake getSnake() {
+        return snake;
+    }
+    public Point getCherry() {
+        return cherry;
+    }
+    public Point getExtraLife() {
+        return extraLife;
+    }
+    public int getPoints() {
+        return points;
+    }
+    public int getExtraLives() {
+        return  extraLives;
+    }
+    public GameStatus getStatus() {
+        return status;
+    }
+    public int[] getBest() {
+        return best;
     }
 }
