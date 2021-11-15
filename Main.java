@@ -28,8 +28,8 @@ public class Main {
      */
     private void initUI() {
         JFrame j = new JFrame();
-        Game game = new Game();
-        j.add(game);
+        Game game = new Game();//Game.getInstance();
+        j.add(game.getGameRender());
 
         j.setTitle("Snake 1.1");
         j.setSize(800, 600);
