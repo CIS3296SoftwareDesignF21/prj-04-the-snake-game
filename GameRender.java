@@ -46,21 +46,21 @@ public class GameRender extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Snake snake = game.getSnake();
-        Point cherry = game.getCherry();
-        Point extraLife = game.getExtraLife();
-        int points = game.getPoints();
-        GameStatus status = game.getStatus();
-        int extraLives = game.getExtraLives();
-        int[] best = game.getBest();
 
-        render(g,snake, cherry, extraLife, points, status, extraLives, best);
+        render(g);
 
         Toolkit.getDefaultToolkit().sync();
     }
 
-    private void render(Graphics g, Snake snake, Point cherry, Point extraLife, int points, GameStatus status, int extraLives, int[] best) {
+    private void render(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        GameStatus status = game.getStatus();
+        Snake snake = game.getSnake();
+        Point cherry = game.getCherry();
+        Point extraLife = game.getExtraLife();
+        int extraLives = game.getExtraLives();
+        int points = game.getPoints();
+        int[] best = game.getBest();
 
         g2d.setColor(new Color(53, 220, 8));
         g2d.setFont(FONT_M);
@@ -109,7 +109,7 @@ public class GameRender extends JPanel {
         g2d.fillRect(p.getX(), p.getY(), 10, 10);
         g2d.setColor(new Color(74, 245, 14));
         g2d.fillRect(p.getX(), p.getY(), 10, 10);
-        for(int i = 0, size = snake.getTail().size(); i < size; i++) {
+        for(int i = 0, size = game.getSnake().getTail().size(); i < size; i++) {
             Point t = snake.getTail().get(i);
             g2d.setColor(new Color(71, 128, 0));
             g2d.fillRect(t.getX(), t.getY(), 10, 10);
