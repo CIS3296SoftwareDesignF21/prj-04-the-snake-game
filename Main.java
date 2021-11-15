@@ -28,7 +28,7 @@ public class Main {
      */
     private void initUI() {
         JFrame j = new JFrame();
-        Game game = new Game();//Game.getInstance();
+        Game game = new Game();
         j.add(game.getGameRender());
 
         j.setTitle("Snake 1.1");

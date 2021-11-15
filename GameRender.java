@@ -19,10 +19,12 @@ public class GameRender extends JPanel {
     private static Font FONT_M_ITALIC = new Font("ArcadeClassic", Font.ITALIC, 24);
     private static Font FONT_L = new Font("ArcadeClassic", Font.PLAIN, 84);
     private static Font FONT_XL = new Font("ArcadeClassic", Font.PLAIN, 150);
+    public static final int WIDTH = 760;
+    public static final int HEIGHT = 520;
+
 
     public GameRender(Game game, KeyListener keyListener) {
         this.game = game;
-        //game = Game.getInstance();
         try {
             image = ImageIO.read(new File("cherry.png"));
         } catch (IOException e) {
@@ -57,7 +59,6 @@ public class GameRender extends JPanel {
         Toolkit.getDefaultToolkit().sync();
     }
 
-    //TODO rendering
     private void render(Graphics g, Snake snake, Point cherry, Point extraLife, int points, GameStatus status, int extraLives, int[] best) {
         Graphics2D g2d = (Graphics2D) g;
 
@@ -76,7 +77,7 @@ public class GameRender extends JPanel {
 
         g2d.drawString("SCORE: " + String.format ("%04d", points), 20, 30);
         g2d.drawString("EXTRA LIVES: " + extraLives,320,30);
-        g2d.drawString("BEST: " + String.format ("%04d", best[best.length-1]), 660, 30);
+        g2d.drawString("BEST: " + String.format ("%04d", best[best.length-1]), 650, 30);
 
         if (cherry != null) {
             if (didLoadCherryImage) {
@@ -87,7 +88,6 @@ public class GameRender extends JPanel {
                 g2d.setColor(new Color(53, 220, 8));
             }
         }
-        //TODO rendering mixed with logic
         if(extraLife!=null){
             if(didLoadExtraLife){
                 g2d.drawImage(extraLifeImage,extraLife.getX(),extraLife.getY(),60,60,null);
@@ -105,18 +105,15 @@ public class GameRender extends JPanel {
         if (status == GameStatus.PAUSED) {
             renderPaused(g2d);
         }
-        //TODO rendering
         g2d.setColor(new Color(245, 3, 52));
         g2d.fillRect(p.getX(), p.getY(), 10, 10);
         g2d.setColor(new Color(74, 245, 14));
         g2d.fillRect(p.getX(), p.getY(), 10, 10);
-        //TODO POSSIBLE rendering mixed with logic
         for(int i = 0, size = snake.getTail().size(); i < size; i++) {
             Point t = snake.getTail().get(i);
             g2d.setColor(new Color(71, 128, 0));
             g2d.fillRect(t.getX(), t.getY(), 10, 10);
         }
-        //TODO rendering
         g2d.setColor(new Color(71, 128, 0));
         g2d.setStroke(new BasicStroke(4));
         g2d.drawRect(20, 40, WIDTH, HEIGHT);
@@ -125,12 +122,9 @@ public class GameRender extends JPanel {
     public void drawCenteredString(Graphics g, String text, Font font, int y) {
         FontMetrics metrics = g.getFontMetrics(font);
         int x = (WIDTH - metrics.stringWidth(text)) / 2;
-
         g.setFont(font);
         g.drawString(text, x, y);
     }
-
-
 
     public void renderEndGame(Graphics2D g2d, int[] best) {
         drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 140);
