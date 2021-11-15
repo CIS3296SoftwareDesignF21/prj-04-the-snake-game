@@ -3,7 +3,9 @@ import javax.swing.JFrame;
 
 public class Main {
 
-    private JFrame window;
+    public Main() {
+        initUI();
+    }
 
     public static void main(String[] args) {
         /*
@@ -13,10 +15,10 @@ public class Main {
             from being blocked and so unresponsive.
         */
         EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 Main main = new Main();
-                main.initUI();
-                main.window.setVisible(true);
+
             }
         });
     }
@@ -35,6 +37,6 @@ public class Main {
         j.setLocationRelativeTo(null);
         j.setResizable(false);
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window = j;
+        j.setVisible(true);
     }
 }
