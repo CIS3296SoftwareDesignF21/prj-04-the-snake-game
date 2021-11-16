@@ -14,8 +14,9 @@
     - 
 
 ### Casey Maloney
-    - 
-    -
+    - Implemented the different diffculty levels for the game 
+    - Changed the reset method to go back to the home page
+    - Updated the Readme and my Personal persona
 
 ### Sophia Szczepanek
     - 
