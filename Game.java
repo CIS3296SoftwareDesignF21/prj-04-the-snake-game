@@ -29,6 +29,18 @@ public class Game extends JPanel {
     private GameStatus status;
     private boolean didLoadCherryImage = true;
     private boolean didLoadExtraLife = true;
+    private int key;
+    private int speed = 7;
+    private boolean extracherry= false;
+    private GameMode mode;
+
+
+
+
+
+
+
+
 
     private static Font FONT_M = new Font("ArcadeClassic", Font.PLAIN, 24);
     private static Font FONT_M_ITALIC = new Font("ArcadeClassic", Font.ITALIC, 24);
@@ -75,15 +87,31 @@ public class Game extends JPanel {
         Toolkit.getDefaultToolkit().sync();
     }
 
+
+    //change the update method to have move take in a parameter to increase
     private void update() {
-        snake.move();
+
+        snake.move(speed);
+
 
         if (cherry != null && snake.getHead().intersects(cherry, 20)) {
             snake.addTail();
             cherry = null;
             points++;
+            extracherry= true;
+
+
+
+
+            //this increases the speed as the snake eats more apples- but for some reason when I implement
+            //anything i try it doesnt change the speed when you implement the mode
+
+
+
+
         }
 
+       if (mode == GameMode.MEDIUM || mode == GameMode.HARD) {
         if(extraLife !=null && snake.getHead().intersects(extraLife,20)){
             if(extraLives < 3){
                 extraLives +=1;
@@ -96,6 +124,10 @@ public class Game extends JPanel {
             newCherries+=1;
         }
 
+
+        }
+
+
         if (cherry == null) {
             newCherries +=1;
             spawnCherry();
@@ -104,8 +136,19 @@ public class Game extends JPanel {
         if(obstacle1 ==null){
             spawnObstacle();
         }
+        if (extracherry) {
+            if (mode == GameMode.HARD) {
+                speed++;
+                extracherry= false;
+            }
+
+        }
+
+
         checkForGameOver();
     }
+
+
 
     private void reset() {
         points = 0;
@@ -113,7 +156,15 @@ public class Game extends JPanel {
         extraLife = null;
         obstacle1=obstacle2=obstacle3 = null;
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
+
+        //i dont want reset to re-start the game and set the status to running
+        //i want to call render or main to print the home screen to set the difficulty level
+        //render();
         setStatus(GameStatus.RUNNING);
+
+
+
+
     }
 
     private void extraLife(){
@@ -157,6 +208,26 @@ public class Game extends JPanel {
         }
 
         status = newStatus;
+    }
+
+    private void setGameMode(GameMode newStatus) {
+
+        switch(newStatus) {
+            case EASY:
+                setStatus(GameStatus.RUNNING);
+                break;
+            case MEDIUM:
+                setStatus(GameStatus.RUNNING);
+                break;
+            case HARD:
+                setStatus(GameStatus.RUNNING);
+                break;
+
+
+
+        }
+
+        mode = newStatus;
     }
 
     private void togglePause() {
@@ -206,9 +277,14 @@ public class Game extends JPanel {
         g2d.setFont(FONT_M);
 
         if (status == GameStatus.NOT_STARTED) {
+
+
             drawCenteredString(g2d, "SNAKE", FONT_XL, 200);
             drawCenteredString(g2d, "GAME", FONT_XL, 300);
-            drawCenteredString(g2d, "Press  any  key  to  begin ", FONT_M_ITALIC, 330);
+            drawCenteredString(g2d, "Please press your key for your difficulty level", FONT_M_ITALIC, 330);
+            drawCenteredString(g2d, "E: Easy M: Medium H: Hard", FONT_M_ITALIC, 360);
+
+
             return;
         }
 
@@ -306,28 +382,41 @@ public class Game extends JPanel {
         }
     }
 
-    public void spawnExtraLife(){
-        extraLife = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-                (new Random()).nextInt(HEIGHT - 60) + 40);
-        if(extraLife == obstacle1 || extraLife ==obstacle2 || extraLife ==obstacle3){
-            spawnExtraLife();
-        }
+    public void spawnExtraLife() {
+
+
+            extraLife = new Point((new Random()).nextInt(WIDTH - 60) + 20,
+                    (new Random()).nextInt(HEIGHT - 60) + 40);
+            if (extraLife == obstacle1 || extraLife == obstacle2 || extraLife == obstacle3) {
+                spawnExtraLife();
+            }
+
+
+
     }
 
+
+
     public void spawnObstacle(){
+
+
+        //hard mode gets obstacles
+        if(mode== GameMode.MEDIUM || mode == GameMode.HARD) {
+
             obstacle1 = new Point((new Random()).nextInt(WIDTH - 60) + 20,
                     (new Random()).nextInt(HEIGHT - 60) + 40);
             obstacle2 = new Point((new Random()).nextInt(WIDTH - 60) + 20,
                     (new Random()).nextInt(HEIGHT - 60) + 40);
             obstacle3 = new Point((new Random()).nextInt(WIDTH - 60) + 20,
-                (new Random()).nextInt(HEIGHT - 60) + 40);
+                    (new Random()).nextInt(HEIGHT - 60) + 40);
+        }
 
     }
 
     private class KeyListener extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            int key = e.getKeyCode();
+            key = e.getKeyCode();
 
             if (status == GameStatus.RUNNING) {
                 switch(key) {
@@ -338,12 +427,43 @@ public class Game extends JPanel {
                 }
             }
 
-            if (status == GameStatus.NOT_STARTED) {
-                setStatus(GameStatus.RUNNING);
+            //not sure what this does exactly
+            //if (status == GameStatus.NOT_STARTED) {
+             //   setStatus(GameStatus.RUNNING);
+          //  }
+            // easy mode
+            //this mode is the basic game- the original code with no extra lives or obstacles or speed increase
+            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_E) {
+                    //
+                   setGameMode(GameMode.EASY);
+
             }
 
+            //medium mode
+            //this mode has the obstacles and extra lives
+            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_M) {
+            //
+                setGameMode(GameMode.MEDIUM);
+
+            }
+
+            //hard mode
+            //hard mode is the speed increase, with obstacles, and extra lives
+            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_H) {
+            //
+                setGameMode(GameMode.HARD);
+
+            }
+
+
+
             if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
+
+                //I want to change this where they dont have to hit enter to restart the game
+                //i need it to go back to the home page
+
                 reset();
+
             }
 
           //Reset

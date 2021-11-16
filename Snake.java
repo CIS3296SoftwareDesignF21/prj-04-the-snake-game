@@ -7,6 +7,7 @@ public class Snake {
     private Direction direction;
     private Point head;
     private ArrayList<Point> tail;
+
     
     public Snake(int x, int y) {
         this.head = new Point(x, y);
@@ -18,7 +19,7 @@ public class Snake {
         this.tail.add(new Point(0, 0));
     }
 
-    public void move() {
+    public void move(int speed) {
         ArrayList newTail = new ArrayList<Point>();
         
         for (int i = 0, size = tail.size(); i < size; i++) {
@@ -30,14 +31,17 @@ public class Snake {
         
         this.tail = newTail;
         
-        this.head.move(this.direction, 10);
+        this.head.move(this.direction, speed);
     }
     
     public void addTail() {
         Point last = this.tail.get(this.tail.size() - 1);
         
         this.tail.add(new Point(-10, -10));
+
+
     }
+
     
     public void turn(Direction d) {       
         if (d.isX() && direction.isY() || d.isY() && direction.isX()) {
