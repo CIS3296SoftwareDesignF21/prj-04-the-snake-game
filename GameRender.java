@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class GameRender extends JPanel {
 
@@ -23,6 +26,7 @@ public class GameRender extends JPanel {
     private static Font FONT_XL = new Font("ArcadeClassic", Font.PLAIN, 150);
     public static final int WIDTH = 760;
     public static final int HEIGHT = 520;
+	public int[] best = new int[10];
 
 
     public GameRender(Game game, KeyListener keyListener) {
@@ -70,7 +74,6 @@ public class GameRender extends JPanel {
         Point obstacle3 = game.getObstacle3();
         int extraLives = game.getExtraLives();
         int points = game.getPoints();
-        int[] best = game.getBest();
 
         g2d.setColor(new Color(53, 220, 8));
         g2d.setFont(FONT_M);
@@ -80,6 +83,7 @@ public class GameRender extends JPanel {
             drawCenteredString(g2d, "GAME", FONT_XL, 300);
             drawCenteredString(g2d, "Please press your key for your difficulty level", FONT_M_ITALIC, 330);
             drawCenteredString(g2d, "E: Easy M: Medium H: Hard", FONT_M_ITALIC, 360);
+            ReadHighscore();
             return;
         }
 
@@ -169,11 +173,51 @@ public class GameRender extends JPanel {
             String score = (best.length - i) + ". "  + best[i];
             drawCenteredString(g2d, score, FONT_M, 425 - i*25);
         }
+        UpdateHighscore();
     }
 
     public void renderPaused(Graphics2D g2d) {
         drawCenteredString(g2d, "Paused", FONT_L, 300);
         drawCenteredString(g2d, "Press R to restart", FONT_M_ITALIC, 330);
     }
+    private void ReadHighscore(){
+		Scanner scanman;
+		try {
+			scanman = new Scanner(new File("highscore.txt"));
+			int i = 0;
+			while(scanman.hasNextInt()){
+			   best[i++] = scanman.nextInt();
+			}
+			i--;
+			int[] rev = new int[10];
+			for(int j = 0; j < best.length; j++) {
+				rev[j] = best[i];
+				i--;
+			}
+			game.setBest(best);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
+    
+    private void UpdateHighscore() {
+    	FileWriter writer;
+
+		try {
+			writer = new FileWriter("highscore.txt");
+			int len = best.length;
+			for(int j = 0; j < len; j++) {
+				writer.write(best[j] + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+    }
+
 
 }
