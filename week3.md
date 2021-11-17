@@ -9,9 +9,9 @@
     -
 
 
-### Grant Gwiazdowski
-    - 
-    - 
+### Grant Gwiazdowski   
+    - Refactored the Game Class into Game and GameRender, to increase cohesion
+    - Refactored Main and Game classes, to reduce coupling
 
 ### Casey Maloney
     - Implemented the different diffculty levels for the game 
