@@ -261,3 +261,12 @@ GameLoop class is updated the game as it is running. The game is one big loop, u
 
 The point class is what the snake is made up of. It creates the parts of the snake and allows the snake to move. 
 
+
+### Sequence Diagram
+
+<img width="878" alt="Screen Shot 2021-11-16 at 7 49 25 PM" src="https://user-images.githubusercontent.com/77749807/142089214-119aaaac-a0ae-4bf8-a4d7-9c776ec9c116.png">
+
+First the user will run Main. This will then call the class initUI() to start a new Game. Game will then addKeyListener() to start the KeyListener class. The KeyListener listens for the key strokes of the user to start the game after the user selects a game mode, to move the snake in different directions, and to pause the game. The KeyListener sets the Game Status to the RUNNING state. Game also creates a new Snake. PaintComponent allows the graphics to be made and calls render(), which draws all the graphics, sets colors and creates text for the Game
+
+When the SetStaus is in the Running state, it will start a new GameLoop to update and repaint the Game as it runs. GameLoop calls update() which starts the Snake’s movement through move(). It also begins the updates of the game like when the snake eats a cherry, the snake gains a segment of its tail. It also updates when you gain an extra life, spawning cherries, lives and obstacles. Lastly, it’ll check to see if the game is over. CheckForGameOver checks if the snake hits itself, the boundary, or an obstacle. If it does, then it changes the SetStatus to Game_Over. KeyListener then waits for the user to press the enter key or the pause and reset keys to reset the game. Reset() resets points, lives, cherries, obstacles, then makes a new snake and setStatus to RUNNING. Finally, CheckForGameOver calls renderEndGame which displays the scoreboard.
+
