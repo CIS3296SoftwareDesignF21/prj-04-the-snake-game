@@ -5,8 +5,8 @@
     - Created week3.md
 
 ### Cole Fitzpatrick
-    - 
-    -
+    - Created a reader and updater to permanently record highscore.
+    - Helped resolve confilcts between pull requests
 
 
 ### Grant Gwiazdowski   
