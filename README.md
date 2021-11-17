@@ -175,7 +175,7 @@ She has an interest in playing the Snake Game due to it’s simplistic nature as
 tells her how to play.
 
 ```
-#### _Persona 5_ 
+#### _Persona 5_ (Grant Gwiazdowski)
 
 ```
 
