@@ -37,7 +37,7 @@ public class GameRender extends JPanel {
             didLoadCherryImage = false;
         }
         try{
-            extraLifeImage = ImageIO.read(new File(".png"));
+            extraLifeImage = ImageIO.read(new File("extraLife.png"));
         }catch(IOException e){
             didLoadExtraLife = false;
         }
@@ -104,7 +104,7 @@ public class GameRender extends JPanel {
         }
         if(extraLife!=null){
             if(didLoadExtraLife){
-                g2d.drawImage(extraLifeImage,extraLife.getX(),extraLife.getY(),60,60,null);
+                g2d.drawImage(extraLifeImage,extraLife.getX(),extraLife.getY(),15,15,null);
             }else {
                 g2d.setColor(Color.GREEN);
                 g2d.fillOval(extraLife.getX(),extraLife.getY(),10,10);
