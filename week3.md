@@ -19,5 +19,6 @@
     - Updated the Readme and my Personal persona
 
 ### Sophia Szczepanek
-    - 
-    -
+    - Helped with speed increase of the snake
+    - Wrote UML Sequence Diagram
+    - Wrote UML Sequence Diagram write up
