@@ -193,3 +193,8 @@ modes and changing to hard modes as she gets better.
 ### Class Diagram
 
 [![Picture1](https://raw.githubusercontent.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/UML/SnakeClassDiagram.jpg)
+
+### Sequence Diagram
+
+<img width="878" alt="Screen Shot 2021-11-16 at 7 49 25 PM" src="https://user-images.githubusercontent.com/77749807/142089214-119aaaac-a0ae-4bf8-a4d7-9c776ec9c116.png">
+
