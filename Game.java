@@ -341,6 +341,7 @@ public class Game {
     }
 
 
+
     /*
         Getters for the fields of Game
      */
@@ -376,6 +377,10 @@ public class Game {
     }
     public int[] getBest() {
         return best;
+    }
+    public void setBest(int[] newbest) {
+		this.best = newbest;
+    	
     }
 
 }
