@@ -196,7 +196,7 @@ modes and changing to hard modes as she gets better.
 
 ### Class Diagram
 
-[![Picture1](https://raw.githubusercontent.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/UML/SnakeClassDiagram.jpg)
+[![Picture1](https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/SnakeClassDiagram.jpg?raw=true)
 
 In our UMl we have 4 main classes: Point, Snake, Game, Main. We also have two enumerations in our diagram: Game status, direction. The enumeration classses are just a list of name constants. 
 
