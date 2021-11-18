@@ -1,4 +1,8 @@
+
+
 # The Snake Game
+        
+
 ### Week 3 Readme
 
 ### Trello Board
@@ -102,7 +106,7 @@ java -jar snake.jar
  
 Sean, College Student  
  
- 
+</div>  
  
 Sean, age 21, is a college student (Senior) at Temple University in Philadelphia, PA. He majors in Graphic Design at The Tyler School of Art where he uses his creativity to create and design interesting visual concepts using computer software. He was raised in a small town where him and his group of friends played a lot of video games together growing up to pass the time.  
   
@@ -111,7 +115,7 @@ have been implemented to the classic game; As well as enjoy the visually pleasin
 The new feature added of being able to collect extra lives allows him to play this challenging game for a longer amount  
 of time, which he enjoys compared to the video games he is usually used to.  
  
- </div>  
+
 
 
 #### _Persona 2_ (Casey Maloney)
@@ -122,13 +126,13 @@ of time, which he enjoys compared to the video games he is usually used to.
  
 Billy, A Young Highschool Student  
  
- 
+
+ </div> 
   
 Billy, age 15, is a highschool student in Philadelphia, PA. Billy spends most of his free time playing video games at home. He's super creative and loves to challenge himself with new games. He one of three kids, and loves to play games with his siblings. During his other time Billy tends to get bored easily and can't sit still for a  long period of time. He always likes to be doing something thats fun and visually pleasing. Most of the time when he's not playing video games, he outside playing with his friends and family.   
  
 Billy is pretty decent at video games, but is not expert. He really likes games that are fun but challenging. The more he plays a game the better he gets. During school Billy just wants to play a game thats simple but also where he can still listen to the teacher. Billy just doesn't want to be bored out of his mind. The Snake Game will help his accomplish this. The Snake Game can help Billy be attentive in class, but also have fun. The game will be able to challenge Billy's mind. This game is perfect for all ages and Billy will be able to play, and continue to get better.  
- 
- </div>  
+  
 
 #### _Persona 3_ (Sophia Szczepanek) 
 
@@ -136,7 +140,8 @@ Billy is pretty decent at video games, but is not expert. He really likes games 
  
  
 Betty, a mom with kids   
- 
+        
+ </div> 
  
  
 Betty is a woman, 40, with kids. She is somewhat experienced with technology but does not want to use a gaming console/controllers because she believes they are too complicated. She knows her kids enjoy playing video games but the ones they play are too overstimulating with their colorful interfaces and complicated gameplay. She feels that playing a new version of a game she liked previously will connect her with technology, as well as feel connected with her kids.  
@@ -144,16 +149,15 @@ Betty is a woman, 40, with kids. She is somewhat experienced with technology but
 Betty is looking to play a retro game with a new feel. She remembers playing earlier versions of the Snake game but wants to explore a newer version. Older versions of the game had only one speed of the game with only two ways to die: either running into the wall or running into itself. This new version of the game will include an easy interface to interact with and added obstacles to make the game increasingly difficult. The controls for the game are only the arrow keys plus some keys to access the menu options so this will be perfect for her needs.  
   
  
- </div> 
 
 #### _Persona 4_ (Cole Fitzpatrick)
 
 
   
-  <div align="center">  
- 
- 
- Agatha, A Retired Teacher  
+  <div align="center"> 
+        
+ Agatha, A Retired Teacher 
+  </div>  
   
 Agatha Jones, age 74, is a retiree from Denver, Colorado. She taught at Great Willow elementary for 45 years before  
 retiring to her coastal home that she shares with her husband in San Diego. She has had a full life so far, graduating from Regis University, raising 3 kids, and winning the Denver holiday baking competition from 2005 to 2018 (and would’ve won in 2019 if it wasn’t for her arthritis). Now she simply wants to sit back, relax, and maybe give a call to her oldest about when she's going to finally become a grandma.  
@@ -171,18 +175,19 @@ She has an interest in playing the Snake Game due to it’s simplistic nature as
   <div align="center">  
  
  Jenni, Grade School Student 
+ </div>  
  
 Jenni, age 7, is a young girl from Austin, Texas. She just started first grade, where she has proven herself to be rather intelligent and clever for her age. She spends most of her free time playing with legos by herself or with her mom, a civil engineer. Her Dad, a technical artist, has been bonding with her by sharing his love of video games with her. He has been introducing her to some simple retro games to try not overwhelm her with modern games that expect more experienced players that grasp common video game patterns.  
  
 Jenni, however, quickly masters the basics of most games and just as quickly finds the games too easy. Jenni wants to try harder games but her dad doesn't want it to be to hard for her. So Her dad wants to have her play a game that has difficulty modes that let them set the difficulty so it's not to hard and she doesn't get bored. The snake game, an updated version of the retro classic, Snake, which lets Jenni choose how hard the game is, letting her learn the basics on easier modes and changing to hard modes as she gets better.  
  
- </div>  
+
 
 
 
 ### Class Diagram
 
-[![Picture1](https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/SnakeClassDiagram.jpg?raw=true)
+![Picture1](https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/SnakeClassDiagram.jpg?raw=true)
 
 In our UMl we have 5 main classes: Point, Snake, Game, GameRender, and Main. We also have two enumerations in our diagram: Game status, direction. The enumeration classses are just a list of name constants.
 
@@ -254,7 +259,7 @@ The point class is what the snake is made up of. It creates the parts of the sna
 ### Easy Mode Use Case 
 
 <div align="center">  
-  <img width="700" alt="EASY MODE SEQUENCE DIAGRAM" src="easymode.png?raw=true">  
+  <img width="750" alt="EASY MODE SEQUENCE DIAGRAM" src="easymode.png?raw=true">  
  
 </div>  
 
@@ -270,7 +275,12 @@ Once the status is set to GAME_OVER the player can now hit enter to restart the 
 
 ### Hard Mode Use Case
 
-<img width="700" alt="Screen Shot 2021-11-18 at 12 44 35 PM" src="https://user-images.githubusercontent.com/77749807/142468605-d82f8370-32c6-4c43-b75e-4236ab932edf.png">
+<div align="center">  
+<img width="750" alt="Screen Shot 2021-11-18 at 12 44 35 PM" src="https://user-images.githubusercontent.com/77749807/142468605-d82f8370-32c6-4c43-b75e-4236ab932edf.png">
+ 
+</div> 
+
+
 
 
 During hard mode, the game can get pretty challenging. It is the easy mode of the game with added elements. The player plays at a constant speed at first but 
