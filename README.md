@@ -253,3 +253,24 @@ The point class is what the snake is made up of. It creates the parts of the sna
 First the user will run Main. This will then call the class initUI() to start a new Game. Game will then addKeyListener() to start the KeyListener class. The KeyListener listens for the key strokes of the user to start the game after the user selects a game mode, to move the snake in different directions, and to pause the game. The KeyListener sets the Game Status to the RUNNING state. Game also creates a new Snake. PaintComponent allows the graphics to be made and calls render(), which draws all the graphics, sets colors and creates text for the Game
 
 When the SetStatus is in the Running state, it will start a new GameLoop to update and repaint the Game as it runs. GameLoop calls update() which starts the Snake’s movement through move(). It also begins the updates of the game like when the snake eats a cherry, the snake gains a segment of its tail. It also updates when you gain an extra life, spawning cherries, lives and obstacles. Lastly, it’ll check to see if the game is over. CheckForGameOver checks if the snake hits itself, the boundary, or an obstacle. If it does, then it changes the SetStatus to Game_Over. KeyListener then waits for the user to press the enter key or the pause and reset keys to reset the game. Reset() resets points, lives, cherries, obstacles, then makes a new snake and setStatus to RUNNING. Finally, CheckForGameOver calls renderEndGame which displays the scoreboard.
+
+
+
+
+### Easy Mode Use Case 
+
+<div align="center">  
+  <img width="700" alt="EASY MODE SEQUENCE DIAGRAM" src="easymode.png?raw=true">  
+ 
+</div>  
+
+
+During easy mode, the game is fundamental. It is the base case for the game, with no added elements. The player plays at a constant speed, with the cherries popping up at random times after the snake eats them. Since the player is on easy mode, obstacles and extra lives will not be included. So the sequence diagram is very basic and straightforward to understand. 
+
+First, the user will run the main method. The main method then calls initUI() to start a new Game. The game will then call Gamerender(), which will display the Jpanel home page board. Gamerender() displays all the graphics and texts of the game for the users to see. Gamerender() then calls KeyListener, which listens for the keystrokes to allow the user to select a game mode. KeyListner also listens for keystrokes for the direction (arrow keys) for the player to pause the game and resume the game. Since the player will be playing on easy mode, the KeyListner will be listening for the keystroke E. Once the keystroke is called, it calls the method setGameStatus(), which takes in a parameter of newstatus from the GameStatus emunm, which sets the difficulty level, and calls setStatus that then updates the GameStatus to running. Once the GameStatus is called and sets the game to RUNNING, the player is now playing snake.
+
+One the game is running, SetStatus calls GameLoop() that calls  update() and gamerender.repaint. The repaint allows the graphics to be displayed and calls render, which will draw all the graphics, including setting the colors and text for the game. Update() will update the game as it is being played. Update calls move(), which takes in parameter speed that updates the speed of the snake. The speed for easy mode is constant and does not change. In update(), the snake class method addtail() is called to update the size of the snake's tail as it continues to eat the cherries. Once the snake eats a cherry, the update method calls the Game class method spawnCherry() to have the cherries appear on the board randomly. Lastly, update calls a method checkForGameOver() to check to see if the game is over. The game will be over when the snake dies by either hitting its tail or hitting the walls of the board. When checkForGameOver calls the snake class getHead(), it checks to see if the snake's head hit one of these elements. If the snake's head hits one of the elements that kill the snake, the setStatus method is called to set the GameStatus to GAME_OVER. 
+
+Once the status is set to GAME_OVER the player can now hit enter to restart the game. Once the KeyListener listens for the keystroke "enter," it then calls reset(). Reset then calls resetSnake() calls setStatus() to set the status to GameStatus.RUNNING. ResetSnake creates a new snake to start the game over. 
+
+
