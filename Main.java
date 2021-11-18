@@ -1,6 +1,9 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
+
+//trying to see if this will fix my problem
+
 public class Main {
 
     public Main() {
@@ -29,7 +32,7 @@ public class Main {
     private void initUI() {
         JFrame j = new JFrame();
         Game game = new Game();
-        j.add(game.getGameRender());
+
 
         j.setTitle("Snake 1.1");
         j.setSize(800, 600);
