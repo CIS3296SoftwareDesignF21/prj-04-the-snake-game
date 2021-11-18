@@ -258,10 +258,7 @@ The point class is what the snake is made up of. It creates the parts of the sna
 
 ### Easy Mode Use Case 
 
-<div align="center">  
-  <img width="750" alt="EASY MODE SEQUENCE DIAGRAM" src="easymode.png?raw=true">  
- 
-</div>  
+<img width="978" alt="Screen Shot 2021-11-18 at 1 14 06 PM" src="https://user-images.githubusercontent.com/77749807/142472960-7675bb6c-6820-4461-ad5c-9bb0ba7d91e6.png">
 
 
 During easy mode, the game is fundamental. It is the base case for the game, with no added elements. The player plays at a constant speed, with the cherries popping up at random times after the snake eats them. Since the player is on easy mode, obstacles and extra lives will not be included. So the sequence diagram is very basic and straightforward to understand. 
