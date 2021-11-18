@@ -1,12 +1,6 @@
 
 
 # The Snake Game
-        
-
-
-
-### Trello Board
-        https://trello.com/b/ONII9TYC/snake-game-project
 
 ### Contributors: Olivia Felmey, Cole Fitzpatrick, Grant Gwiazdowski, Casey Maloney, Sophia Szczepanek
 
@@ -89,6 +83,45 @@ java -jar snake.jar
   “For people off all ages who need an easy but challenging game, The Snake Game is a Java-based game that engages users by having a point-based system which rewards them as they play and adds obstacles and speed to improve difficulty of the game. Unlike the retro/original version of the Snake Game, our Snake Game provides a simple interface with improved gameplay that utilizes multi-threading processes for the collisions and direction of the snake.”  
 </div>  
 
+
+### Personas 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/Personas.md
+
+
+### UML Class Diagram 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/ClassDiagram.md
+
+
+### Sequence Diagrams 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/SequenceDiagram.md
+        
+### Trello Board
+        https://trello.com/b/ONII9TYC/snake-game-project
+        
+        
+### Weekly Progress 
+
+- WEEK1.md 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/week1.md
+
+
+- WEEK2.md 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/week2.md
+
+
+- WEEK3.md
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/week3.md
+
+
+- WEEK4.md 
+
+        https://github.com/CIS3296SoftwareDesignF21/prj-04-the-snake-game/blob/main/Week4.md
   
 
 
