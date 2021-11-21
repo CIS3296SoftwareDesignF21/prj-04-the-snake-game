@@ -136,6 +136,7 @@ public class Game {
         cherry = null;
         extraLife = null;
         obstacle1 = obstacle2 = obstacle3=null;
+        speed = 7;
         resetSnake();
         //do we want the snake to have the long tail still once extra live starts??
         //  for(int i =0;i<theSize;i++){
