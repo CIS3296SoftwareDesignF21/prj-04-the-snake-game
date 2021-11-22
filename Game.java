@@ -29,16 +29,6 @@ public class Game {
     private int speed = 7;
     private boolean extracherry= false;
     private GameMode mode;
-
-
-
-
-
-
-
-
-
-
     private static int DELAY = 50;
 
 
@@ -53,62 +43,48 @@ public class Game {
     private void update() {
         snake.move(speed);
 
-
         if (cherry != null && snake.getHead().intersects(cherry, 20)) {
             snake.addTail();
             cherry = null;
             points++;
             extracherry= true;
 
-
-
-
             //this increases the speed as the snake eats more apples- but for some reason when I implement
             //anything i try it doesnt change the speed when you implement the mode
-
-
-
-
         }
 
        if (mode == GameMode.MEDIUM || mode == GameMode.HARD) {
-         if(extraLife !=null && snake.getHead().intersects(extraLife,20)){
-            if(extraLives < 3){
-                extraLives +=1;
+             if(extraLife !=null && snake.getHead().intersects(extraLife,20)){
+                    if(extraLives < 3){
+                    extraLives +=1;
+                    }
+                    extraLife = null;
             }
-            extraLife = null;
-        }
 
-         if(extraLife ==null && extraLives < 3 && newCherries % 15==0 && newCherries !=0){
-            spawnExtraLife();
-            newCherries+=1;
-        }
+            if(extraLife ==null && extraLives < 3 && newCherries % 15==0 && newCherries !=0){
+                  spawnExtraLife();
+                  newCherries+=1;
+             }
 
-           if(obstacle1 ==null){
-               spawnObstacle();
-           }
+            if(obstacle1 ==null){
+                 spawnObstacle();
+             }
         }
-
 
         if (cherry == null) {
             newCherries +=1;
             spawnCherry();
         }
 
-
         if (extracherry) {
             if (mode == GameMode.HARD) {
                 speed++;
                 extracherry= false;
             }
-
         }
-
 
         checkForGameOver();
     }
-
-
 
     private void reset() {
         points = 0;
@@ -124,6 +100,7 @@ public class Game {
         setStatus(GameStatus.RUNNING);
         speed = 7;
     }
+
     private void resetSnake() {
         snake = new Snake(GameRender.WIDTH / 2, GameRender.HEIGHT / 2);
     }
@@ -165,15 +142,12 @@ public class Game {
                         break;
                     }
                 }
-
                 break;
         }
-
         status = newStatus;
     }
 
     private void setGameMode(GameMode newStatus) {
-
         switch(newStatus) {
             case EASY:
                 setStatus(GameStatus.RUNNING);
@@ -184,11 +158,7 @@ public class Game {
             case HARD:
                 setStatus(GameStatus.RUNNING);
                 break;
-
-
-
         }
-
         mode = newStatus;
     }
 
@@ -245,12 +215,7 @@ public class Game {
         if (extraLife == obstacle1 || extraLife == obstacle2 || extraLife == obstacle3) {
                 spawnExtraLife();
             }
-
-
-
     }
-
-
 
     public void spawnObstacle(){
         //hard mode gets obstacles
@@ -300,7 +265,6 @@ public class Game {
             if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_M) {
             //
                 setGameMode(GameMode.MEDIUM);
-
             }
 
             //hard mode
@@ -308,24 +272,17 @@ public class Game {
             if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_H) {
             //
                 setGameMode(GameMode.HARD);
-
             }
 
-
-
            if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
-
                 //I want to change this where they dont have to hit enter to restart the game
                 //i need it to go back to the home page
-
                reset();
-
             }
 
           //Reset
             if(key == KeyEvent.VK_R && status == GameStatus.PAUSED) {
             	 reset();
-             	 
             }
 
             if (key == KeyEvent.VK_P) {
