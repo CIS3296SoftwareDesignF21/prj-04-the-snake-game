@@ -51,7 +51,6 @@ public class Game {
 
     //change the update method to have move take in a parameter to increase
     private void update() {
-
         snake.move(speed);
 
 
@@ -73,19 +72,21 @@ public class Game {
         }
 
        if (mode == GameMode.MEDIUM || mode == GameMode.HARD) {
-        if(extraLife !=null && snake.getHead().intersects(extraLife,20)){
+         if(extraLife !=null && snake.getHead().intersects(extraLife,20)){
             if(extraLives < 3){
                 extraLives +=1;
             }
             extraLife = null;
         }
 
-        if(extraLife ==null && extraLives < 3 && newCherries % 15==0 && newCherries !=0){
+         if(extraLife ==null && extraLives < 3 && newCherries % 15==0 && newCherries !=0){
             spawnExtraLife();
             newCherries+=1;
         }
 
-
+           if(obstacle1 ==null){
+               spawnObstacle();
+           }
         }
 
 
@@ -94,9 +95,7 @@ public class Game {
             spawnCherry();
         }
 
-        if(obstacle1 ==null){
-            spawnObstacle();
-        }
+
         if (extracherry) {
             if (mode == GameMode.HARD) {
                 speed++;
@@ -115,17 +114,15 @@ public class Game {
         points = 0;
         cherry = null;
         extraLife = null;
-        obstacle1=obstacle2=obstacle3 = null;
+        obstacle1= null;
+        obstacle2= null;
+        obstacle3 = null;
         resetSnake();
         //i dont want reset to re-start the game and set the status to running
         //i want to call render or main to print the home screen to set the difficulty level
         //render();
         setStatus(GameStatus.RUNNING);
         speed = 7;
-
-
-
-
     }
     private void resetSnake() {
         snake = new Snake(GameRender.WIDTH / 2, GameRender.HEIGHT / 2);
@@ -213,8 +210,8 @@ public class Game {
             ateItself = ateItself || head.equals(t);
         }
 
-        if(obstacle1!=null && snake.getHead().intersects(obstacle1,20) || obstacle2!=null && snake.getHead().intersects(obstacle2,20) || obstacle3!=null && snake.getHead().intersects(obstacle3,20)){
-            obstacle1 = obstacle2 =obstacle3=null;
+        if(snake.getHead().intersects(obstacle1,20) ||  snake.getHead().intersects(obstacle2,20) || snake.getHead().intersects(obstacle3,20)){
+           // obstacle1 = obstacle2 =obstacle3=null;
             hitObstacle = true;
         }
 
@@ -231,19 +228,21 @@ public class Game {
     public void spawnCherry() {
         cherry = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
                 (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
+
         //so cherry does not spawn directly under obstacle
-        if(cherry == obstacle1 ||cherry == obstacle2 || cherry == obstacle3){
-            spawnCherry();
+        if(mode == GameMode.MEDIUM || mode == GameMode.HARD) {
+            if (cherry.intersects(obstacle1,40) || cherry.intersects(obstacle2,40)|| cherry.intersects(obstacle3,40)|| cherry==extraLife) {
+                spawnCherry();
+            }
         }
 
     }
 
     public void spawnExtraLife() {
-
-
         extraLife = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
                 (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
-            if (extraLife == obstacle1 || extraLife == obstacle2 || extraLife == obstacle3) {
+
+        if (extraLife == obstacle1 || extraLife == obstacle2 || extraLife == obstacle3) {
                 spawnExtraLife();
             }
 
@@ -255,16 +254,18 @@ public class Game {
 
     public void spawnObstacle(){
         //hard mode gets obstacles
-        if(mode== GameMode.MEDIUM || mode == GameMode.HARD) {
-
+       // if(mode== GameMode.MEDIUM || mode == GameMode.HARD) {
             obstacle1 = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
                     (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
             obstacle2 = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
                     (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
             obstacle3 = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
                     (new Random()).nextInt(GameRender.HEIGHT - 60) + 40);
-        }
+        //}
 
+       if(obstacle1.intersects(obstacle2,30)||obstacle1.intersects(obstacle3,30) ||obstacle2.intersects(obstacle3,30)){
+            spawnObstacle();
+        }
 
     }
 
@@ -283,9 +284,9 @@ public class Game {
             }
 
             //not sure what this does exactly
-            //if (status == GameStatus.NOT_STARTED) {
+           // if (status == GameStatus.NOT_STARTED) {
              //   setStatus(GameStatus.RUNNING);
-          //  }
+           //}
             // easy mode
             //this mode is the basic game- the original code with no extra lives or obstacles or speed increase
             if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_E) {
@@ -312,12 +313,12 @@ public class Game {
 
 
 
-            if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
+           if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
 
                 //I want to change this where they dont have to hit enter to restart the game
                 //i need it to go back to the home page
 
-                reset();
+               reset();
 
             }
 
