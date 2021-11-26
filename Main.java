@@ -31,7 +31,7 @@ public class Main {
         Game game = new Game();
         j.add(game.getGameRender());
 
-        j.setTitle("Snake 1.1");
+        j.setTitle("Snake 1.2");
         j.setSize(800, 600);
 
         j.setLocationRelativeTo(null);
