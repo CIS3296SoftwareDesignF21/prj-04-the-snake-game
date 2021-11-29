@@ -9,7 +9,8 @@
 
 
 ### Grant Gwiazdowski
-    - 
+    - Add ability to restart and change difficulity
+    - Add tutorial text
 
 ### Casey Maloney
     - 
