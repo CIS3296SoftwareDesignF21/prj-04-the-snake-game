@@ -86,7 +86,7 @@ public class Game {
         checkForGameOver();
     }
 
-    private void reset() {
+    private void reset(Boolean restarted) {
         points = 0;
         cherry = null;
         extraLife = null;
@@ -97,7 +97,13 @@ public class Game {
         //i dont want reset to re-start the game and set the status to running
         //i want to call render or main to print the home screen to set the difficulty level
         //render();
-        setStatus(GameStatus.RUNNING);
+        if(restarted) {
+            setStatus(GameStatus.RESTARTED);
+            gameRender.repaint();
+        }
+        else {
+            setStatus(GameStatus.RUNNING);
+        }
         speed = 7;
     }
 
@@ -179,10 +185,11 @@ public class Game {
         for(Point t : snake.getTail()) {
             ateItself = ateItself || head.equals(t);
         }
-
-        if(snake.getHead().intersects(obstacle1,20) ||  snake.getHead().intersects(obstacle2,20) || snake.getHead().intersects(obstacle3,20)){
-           // obstacle1 = obstacle2 =obstacle3=null;
-            hitObstacle = true;
+        if(mode != GameMode.EASY) {
+            if (snake.getHead().intersects(obstacle1, 20) || snake.getHead().intersects(obstacle2, 20) || snake.getHead().intersects(obstacle3, 20)) {
+                // obstacle1 = obstacle2 =obstacle3=null;
+                hitObstacle = true;
+            }
         }
 
         if (hitBoundary || ateItself || hitObstacle) {
@@ -254,7 +261,7 @@ public class Game {
            //}
             // easy mode
             //this mode is the basic game- the original code with no extra lives or obstacles or speed increase
-            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_E) {
+            if ((status == GameStatus.NOT_STARTED || status == GameStatus.RESTARTED) && key == KeyEvent.VK_E) {
                     //
                    setGameMode(GameMode.EASY);
 
@@ -262,14 +269,14 @@ public class Game {
 
             //medium mode
             //this mode has the obstacles and extra lives
-            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_M) {
+            if ((status == GameStatus.NOT_STARTED || status == GameStatus.RESTARTED) && key == KeyEvent.VK_M) {
             //
                 setGameMode(GameMode.MEDIUM);
             }
 
             //hard mode
             //hard mode is the speed increase, with obstacles, and extra lives
-            if (status == GameStatus.NOT_STARTED && key == KeyEvent.VK_H) {
+            if ((status == GameStatus.NOT_STARTED || status == GameStatus.RESTARTED) && key == KeyEvent.VK_H) {
             //
                 setGameMode(GameMode.HARD);
             }
@@ -277,15 +284,21 @@ public class Game {
            if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
                 //I want to change this where they dont have to hit enter to restart the game
                 //i need it to go back to the home page
-               reset();
+               reset(false);
+            }
+
+            if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_R) {
+                //I want to change this where they dont have to hit enter to restart the game
+                //i need it to go back to the home page
+                reset(true);
             }
 
           //Reset
             if(key == KeyEvent.VK_R && status == GameStatus.PAUSED) {
-            	 reset();
+            	 reset(true);
             }
 
-            if (key == KeyEvent.VK_P) {
+            if ((status == GameStatus.RUNNING || status == GameStatus.PAUSED) && key == KeyEvent.VK_P) {
                 togglePause();
                 gameRender.repaint();
             }
