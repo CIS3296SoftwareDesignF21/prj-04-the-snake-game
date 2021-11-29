@@ -94,9 +94,7 @@ public class Game {
         obstacle2= null;
         obstacle3 = null;
         resetSnake();
-        //i dont want reset to re-start the game and set the status to running
-        //i want to call render or main to print the home screen to set the difficulty level
-        //render();
+
         if(restarted) {
             setStatus(GameStatus.RESTARTED);
             gameRender.repaint();
@@ -282,14 +280,10 @@ public class Game {
             }
 
            if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_ENTER) {
-                //I want to change this where they dont have to hit enter to restart the game
-                //i need it to go back to the home page
                reset(false);
             }
 
             if (status == GameStatus.GAME_OVER && key == KeyEvent.VK_R) {
-                //I want to change this where they dont have to hit enter to restart the game
-                //i need it to go back to the home page
                 reset(true);
             }
 
