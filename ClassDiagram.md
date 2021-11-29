@@ -37,15 +37,17 @@ Game() makes a new snake, and a new GameRender object that is passed a keyListen
 
 Update() is updating the snake as the game proccedes. It acts as the main logical updater of the game, checking if it all conditions are met to be in the current Game status of the Game and its objects. It moves the snake, and checks whether or not the snake head has hit the apple. It will then call to add to the tail and also checks whether the snake head has hit a collison and died.
 
-reset() reset the game, and restarts it from the base snake length and position.
+reset(restarted: Boolean) reset the game, and restarts it from the base snake length and position, or if the player restarted, returns them to the menu.
 
-setStatus() is a method that sets the status of the game. Remember the status of our current game is either NOT_STARTED, RUNNING, PAUSED, or GAME_OVER. It switched the status between the four as the game starts, running, or ends.
+setStatus() is a method that sets the status of the game. Remember the status of our current game is either NOT_STARTED, RUNNING, PAUSED, RESTARTED, or GAME_OVER. It switched the status between the five as the game starts, running, restarts, or ends.
 
 TogglePause() is the pause method, that when called it pauses the game.
 
 checkforGameOver() is a method that check for collisions. There are two different things that will kill the snake: if it hit a boundary, if it hit its own tail. It checks whether the snake has done either one of those collisions and will end the game into the status GAME_OVER.
 
 spawnCherry() is the method that displays the "apples" at random.
+
+setGameModeStatus(status:GameMode) sets the GameMode based on the choice of the player and then causes the game to run
 
 The Keylistener class is "listening" to what key is pressed on the keyboard. Its basically listening to the direction that is being inputted from the player to help tell where the snake to move. It is also listening to the pause button and when to start the game.
 
@@ -59,6 +61,16 @@ Render() is the biggest method in this class. It is the primary graphics renderi
 PaintComponent() calls render to run the game and prints the graphics on the screen.
 
 DrawCenteredString() just creates graphics text and centers the graphics on the board.
+
+renderTitle(Graphics2D g2d) is a helper function used to draw the title screen
+
+renderEndGame(Graphics2D g2d) is a helper function used to draw the Game Over text and highscores when the snake dies
+
+renderPaused(Graphics2D g2d) is a helper function used to draw the Pause text when the player pauses
+
+ReadHighscore() reads the saved highscores from a file into the game
+
+UpdateHighscore() writes the highscores in the game to a file
 
 #### Point
 The point class is what the snake is made up of. It creates the parts of the snake and allows the snake to move.
