@@ -177,12 +177,13 @@ public class GameRender extends JPanel {
     }
     public void renderEndGame(Graphics2D g2d, int[] best) {
     	g2d.setColor(new Color(53, 220, 8));
-    	drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 140);
+     	drawCenteredString(g2d, "Press  ENTER  to  play  again", FONT_M_ITALIC, 140);
+        drawCenteredString(g2d, "Press  R  to  return to menu", FONT_M_ITALIC, 170);
         drawCenteredString(g2d, "GAME OVER", FONT_L, 110);
-        drawCenteredString(g2d, "Best Scores:", FONT_M, 170);
+        drawCenteredString(g2d, "Best Scores:", FONT_M, 210);
         for(int i = best.length-1; i >=0 ; i--) {
             String score = (best.length - i) + ". "  + best[i];
-            drawCenteredString(g2d, score, FONT_M, 425 - i*25);
+            drawCenteredString(g2d, score, FONT_M, 465 - i*25);
         }
         UpdateHighscore();
     }
