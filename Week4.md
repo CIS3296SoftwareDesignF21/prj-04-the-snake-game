@@ -16,4 +16,5 @@
     - 
 
 ### Sophia Szczepanek
-    - 
+    - Worked on the threads to test for the direction of the snake 
+    - Updated the Sequence Diagram 
