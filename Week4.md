@@ -11,6 +11,7 @@
 ### Grant Gwiazdowski
     - Add ability to restart and change difficulity
     - Add tutorial text
+    - Update Class diagram and description
 
 ### Casey Maloney
     - 
