@@ -48,7 +48,7 @@ public class GameRender extends JPanel {
         }
         this.addKeyListener(keyListener);
         this.setFocusable(true);
-        this.setBackground(Color.black);
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
 
         repaint();
@@ -65,6 +65,7 @@ public class GameRender extends JPanel {
 
     private void render(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setBackground(Color.BLACK);
         GameStatus status = game.getStatus();
         Snake snake = game.getSnake();
         Point cherry = game.getCherry();
@@ -78,11 +79,8 @@ public class GameRender extends JPanel {
         g2d.setColor(new Color(53, 220, 8));
         g2d.setFont(FONT_M);
 
-        if (status == GameStatus.NOT_STARTED) {
-            drawCenteredString(g2d, "SNAKE", FONT_XL, 200);
-            drawCenteredString(g2d, "GAME", FONT_XL, 300);
-            drawCenteredString(g2d, "Please press your key for your difficulty level", FONT_M_ITALIC, 330);
-            drawCenteredString(g2d, "E: Easy M: Medium H: Hard", FONT_M_ITALIC, 360);
+        if (status == GameStatus.NOT_STARTED || status == GameStatus.RESTARTED) {
+            renderTitle(g2d);
             ReadHighscore();
             return;
         }
@@ -140,6 +138,11 @@ public class GameRender extends JPanel {
         if (status == GameStatus.GAME_OVER) {
             renderEndGame(g2d, best);
         }
+
+        if(status == GameStatus.RESTARTED) {
+            g2d.clearRect(0, 0,800,600);
+        }
+
         if (status == GameStatus.PAUSED) {
             renderPaused(g2d);
         }
@@ -164,6 +167,14 @@ public class GameRender extends JPanel {
         g.drawString(text, x, y);
     }
 
+    public void renderTitle(Graphics2D g2d) {
+        drawCenteredString(g2d, "SNAKE", FONT_XL, 200);
+        drawCenteredString(g2d, "GAME", FONT_XL, 300);
+        drawCenteredString(g2d, "Please press your key for your difficulty level", FONT_M_ITALIC, 330);
+        drawCenteredString(g2d, "E: Easy M: Medium H: Hard", FONT_M_ITALIC, 360);
+        drawCenteredString(g2d, "Use the Arrow Keys to direct the snake", FONT_M, 400);
+        drawCenteredString(g2d, "Press P to pause the game", FONT_M, 430);
+    }
     public void renderEndGame(Graphics2D g2d, int[] best) {
     	g2d.setColor(new Color(53, 220, 8));
     	drawCenteredString(g2d, "Press  enter  to  start  again ", FONT_M_ITALIC, 140);
