@@ -74,3 +74,9 @@ UpdateHighscore() writes the highscores in the game to a file
 
 #### Point
 The point class is what the snake is made up of. It creates the parts of the snake and allows the snake to move.
+
+#### CollisionThread
+This is a thread class in which each thread intialized on it is resposnsible for detecing collisions of the snake. 
+
+Run() runs the thread when called and does the colision detection for when the snake hits the boundrym itself, or an obstacle and reports when true.
+
