@@ -30,6 +30,8 @@ public class Game {
     private boolean extracherry= false;
     private GameMode mode;
     private static int DELAY = 50;
+    public static int numCheck;
+
 
 
     public Game() {
@@ -172,25 +174,32 @@ public class Game {
 
     private void checkForGameOver() {
         Point head = snake.getHead();
-        boolean hitBoundary = head.getX() <= 20
-                || head.getX() >= GameRender.WIDTH + 10
-                || head.getY() <= 40
-                || head.getY() >= GameRender.HEIGHT + 30;
-
-        boolean ateItself = false;
-        boolean hitObstacle = false;
-
-        for(Point t : snake.getTail()) {
-            ateItself = ateItself || head.equals(t);
-        }
         if(mode != GameMode.EASY) {
-            if (snake.getHead().intersects(obstacle1, 20) || snake.getHead().intersects(obstacle2, 20) || snake.getHead().intersects(obstacle3, 20)) {
-                // obstacle1 = obstacle2 =obstacle3=null;
-                hitObstacle = true;
-            }
+        	numCheck = 3;
+        }else {
+        	numCheck = 2;
+        }
+        Thread[] threads = new Thread[numCheck];
+        for (int i = 0; i < numCheck; i++) {
+            threads[i] = new CollisionThread(i, snake, obstacle1, obstacle2, obstacle3);
+            threads[i].start();
+        }
+        for (Thread thread : threads) {
+            try {
+				thread.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        boolean collision = false;
+        for (int i = 0; i < numCheck; i++) {
+        	if(((CollisionThread) threads[i]).getCollision() == true) {
+        		collision = true;
+        	}
         }
 
-        if (hitBoundary || ateItself || hitObstacle) {
+        if (collision) {
             if(extraLives >0){
                 extraLives -=1;
                 extraLife();
@@ -199,6 +208,7 @@ public class Game {
             }
         }
     }
+    
 
     public void spawnCherry() {
         cherry = new Point((new Random()).nextInt(GameRender.WIDTH - 60) + 20,
