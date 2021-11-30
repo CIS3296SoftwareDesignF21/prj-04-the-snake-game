@@ -5,7 +5,7 @@
     - Updated version title
 
 ### Cole Fitzpatrick
-    - 
+    - Changed collision detrection to threading
 
 
 ### Grant Gwiazdowski
