@@ -29,11 +29,16 @@ of time, which he enjoys compared to the video games he is usually used to.
 Billy, A Young Highschool Student  
  
 
+
  </div> 
-  
-Billy, age 15, is a highschool student in Philadelphia, PA. Billy spends most of his free time playing video games at home. He's super creative and loves to challenge himself with new games. He one of three kids, and loves to play games with his siblings. During his other time Billy tends to get bored easily and can't sit still for a  long period of time. He always likes to be doing something thats fun and visually pleasing. Most of the time when he's not playing video games, he outside playing with his friends and family.   
  
-Billy is pretty decent at video games, but is not expert. He really likes games that are fun but challenging. The more he plays a game the better he gets. During school Billy just wants to play a game thats simple but also where he can still listen to the teacher. Billy just doesn't want to be bored out of his mind. The Snake Game will help his accomplish this. The Snake Game can help Billy be attentive in class, but also have fun. The game will be able to challenge Billy's mind. This game is perfect for all ages and Billy will be able to play, and continue to get better.  
+Billy, age 15, is a high school student in Philadelphia, PA. Billy spends most of his time playing on his travel soccer team and hanging out with his friends. Billy is super creative and loves to challenge himself with new things.  Since Billy is one of three children, he loves to spend time with his older brothers. His brothers and friends are into video games, and Billy feels left out. With soccer practice and school, he doesn't have much time to try and play new games that are pretty challenging—That's where The Snake Game comes in. 
+
+The Snake Game is a perfect video game to get Billy started. With the different difficulty modes, Billy can continue to challenge himself harder and harder. Since Billy is just getting started into video games, he's not very good. The extra life feature in the new Snake Game is perfect for Billy. The Snake Game is simple enough to play in his free time, but it's also fun for him to keep playing. The Snake Game can help Billy gain more knowledge on videos and continue to get better at them. The extra lives and difficulty modes can help challenge his mind and help him continue to play. 
+
+
+
+
   
 
 #### _Persona 3_ (Sophia Szczepanek) 
