@@ -14,7 +14,11 @@
     - Update Class diagram and description
 
 ### Casey Maloney
-    - 
+    - Worked on the threads to test for the direction of the snake 
+    - Finalized the Readme, making sure everything was updated 
+    - Updated the UML discription 
+    - Updated the Sequence diagram 
+    - Creayed week4.md
 
 ### Sophia Szczepanek
     - Worked on the threads to test for the direction of the snake 
