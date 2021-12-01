@@ -200,10 +200,12 @@ SetX(p: Point) sets the x value when the snake moves.
 SetY(p: Point) sets the y value when the snake moves. 
 
 **toString** 
+
 toString() gets the coordinates and makes them into a string 
 
 **intersects**
-Intersects()
+
+Intersects() checks for coordinates of the collision and if the sanke will die 
 
 
 ## CollisionThread
