@@ -57,13 +57,10 @@ _RUNNING_
 
 1. In case you don't have it already, download and install the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-2. Download the .jar file from the latest [release](https://github.com/renanpvaz/java-snake/releases).
+2. Clone the repo into your IDE of choise
 
-3. Inside the folder where the downloaded .jar is run:
+3. From there go into the Main Class and run from main(String() args) 
 
-```  
-java -jar snake.jar  
-```  
 
 ## New Ideas to the Game
 1. Implement the game using threads: the direction of the snake and testing for collisions.
