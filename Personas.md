@@ -51,9 +51,9 @@ Betty, a mom with kids
  </div> 
  
  
-Betty is a woman, 40, with kids. She is somewhat experienced with technology but does not want to use a gaming console/controllers because she believes they are too complicated. She knows her kids enjoy playing video games but the ones they play are too overstimulating with their colorful interfaces and complicated gameplay. She feels that playing a new version of a game she liked previously will connect her with technology, as well as feel connected with her kids.  
+Betty is a woman, 40, with kids. She is very experienced with technology, being a software engineer full-time. She knows her kids enjoy playing video games but she is more interested in the details behind the scenes. She feels that playing a new version of a game she has previously worked on will connect her with technology, as well as feel connected with her kids.  
   
-Betty is looking to play a retro game with a new feel. She remembers playing earlier versions of the Snake game but wants to explore a newer version. Older versions of the game had only one speed of the game with only two ways to die: either running into the wall or running into itself. This new version of the game will include an easy interface to interact with and added obstacles to make the game increasingly difficult. The controls for the game are only the arrow keys plus some keys to access the menu options so this will be perfect for her needs.  
+Betty is looking to play a retro game with a new feel. She remembers working on earlier versions of the Snake game but wants to explore a newer version. Older versions of the game had less complex code and were more easy to comprehend. This new version involves threads, which Betty finds impressive. She thinks that this is a superior way of running the game. The threads testing for collisions and the movement of the snake is smart in her opinion and she likes that it is more complex than previous Snake games that she has seen.
   
  
 
