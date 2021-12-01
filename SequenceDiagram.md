@@ -5,7 +5,8 @@
 
 ### Easy Mode Use Case 
 
-<img width="978" alt="Screen Shot 2021-11-18 at 1 14 06 PM" src="https://user-images.githubusercontent.com/77749807/142472960-7675bb6c-6820-4461-ad5c-9bb0ba7d91e6.png">
+<img width="1049" alt="Screen Shot 2021-12-01 at 1 54 32 PM" src="https://user-images.githubusercontent.com/77749807/144296063-91bdea77-d492-44a6-ba13-20b374eb2214.png">
+
 
 
 During easy mode, the game is fundamental. It is the base case for the game, with no added elements. The player plays at a constant speed, with the cherries popping up at random times after the snake eats them. Since the player is on easy mode, obstacles and extra lives will not be included. So the sequence diagram is very basic and straightforward to understand. 
@@ -20,7 +21,7 @@ Once the status is set to GAME_OVER the player can now hit enter to restart the 
 ### Hard Mode Use Case
 
 <div align="center">  
-<img width="750" alt="Screen Shot 2021-11-18 at 12 44 35 PM" src="https://user-images.githubusercontent.com/77749807/142468605-d82f8370-32c6-4c43-b75e-4236ab932edf.png">
+<img width="1049" alt="Screen Shot 2021-12-01 at 1 50 15 PM" src="https://user-images.githubusercontent.com/77749807/144295461-8cc657df-ac50-4fa8-8e7d-29ca25813990.png">
  
 </div> 
 
